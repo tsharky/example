@@ -14,3 +14,8 @@ target_include_directories(${THIS} PUBLIC
     "../include"
 )
 
+target_compile_options(${THIS} PRIVATE
+	-Wall
+	-Wextra
+	-Werror
+)

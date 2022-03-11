@@ -1,4 +1,4 @@
-set(THIS ExampleTests)
+set(THIS example_tests)
 
 add_subdirectory("${PROJECT_SOURCE_DIR}/extern/googletest" "extern/googletest")
 
@@ -11,7 +11,7 @@ target_link_libraries(${THIS}
     gtest
     gmock
     gtest_main
-    example
+    example_library
 )
 
 add_test(

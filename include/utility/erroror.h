@@ -1,7 +1,5 @@
-#ifndef RAMMELO_ERROROR_H
-#define RAMMELO_ERROROR_H
-
-#include <cstdint>
+#ifndef UTILITY_ERROROR_H
+#define UTILITY_ERROROR_H
 
 template<typename T>
 struct [[nodiscard]] ErrorOr {
@@ -13,4 +11,4 @@ struct [[nodiscard]] ErrorOr {
     constexpr bool isErr() noexcept { return !isOk(); }
 };
 
-#endif //RAMMELO_ERROROR_H
+#endif //UTILITY_ERROROR_H

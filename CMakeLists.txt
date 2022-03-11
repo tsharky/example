@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 3.21)
 project(ModernCMakeExample
     DESCRIPTION "An example project with CMake"
     LANGUAGES C CXX)
 
-if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+if("${CMAKE_PROJECT_NAME}" STREQUAL "${PROJECT_NAME}")
     set(CMAKE_C_STANDARD 99)
     set(CMAKE_CXX_STANDARD 20)
     set(CMAKE_POSITION_INDEPENDENT_CODE ON)
@@ -11,9 +11,10 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     set(CMAKE_CXX_EXTENSIONS OFF)
     
     set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+	list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
     # Testing
-    option(PACKAGE_TESTS "Build the tests" ON)
+    option(BUILD_TESTS "Build the tests" ON)
 
     # Doxygen
     find_package(Doxygen)
@@ -30,10 +31,7 @@ add_subdirectory(src)
 # The executable code is here
 add_subdirectory(apps)
 
-message(STATUS "Hallo1")
-message(STATUS ${PACKAGE_TESTS})
-if(${PACKAGE_TESTS})
-    message("Hallo2")
+if(("${CMAKE_PROJECT_NAME}" STREQUAL "${PROJECT_NAME}") AND ${BUILD_TESTS})
     enable_testing()
     include(GoogleTest)
     add_subdirectory(tests)

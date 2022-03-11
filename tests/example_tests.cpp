@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "../Example.hpp"
+#include "example/example.hpp"
 
 struct ExampleTestsFixture : public ::testing::Test {
     int *x;
@@ -9,11 +9,11 @@ struct ExampleTestsFixture : public ::testing::Test {
         return *x;
     }
 
-    virtual void SetUp() override {
+    void SetUp() override {
         x = new int(42);
     }
 
-    virtual void TearDown() override {
+    void TearDown() override {
         delete x;
     }
 };
