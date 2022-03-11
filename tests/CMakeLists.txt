@@ -1,17 +1,20 @@
-cmake_minimum_required(VERSION 3.17)
-set(This ExampleTests)
+set(THIS ExampleTests)
 
-set(Sources
-        ExampleTests.cpp
-        )
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/googletest" "extern/googletest")
 
-add_executable(${This} ${Sources})
-target_link_libraries(${This} PUBLIC
-        gtest_main
-        example
-        )
+set(SOURCES
+    example_tests.cpp
+)
+
+add_executable(${THIS} ${SOURCES})
+target_link_libraries(${THIS}
+    gtest
+    gmock
+    gtest_main
+    example
+)
 
 add_test(
-        NAME ${This}
-        COMMAND ${This}
+    NAME ${THIS}
+    COMMAND ${THIS}
 )
