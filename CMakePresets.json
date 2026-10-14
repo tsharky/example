@@ -12,10 +12,11 @@
       "binaryDir": "build/${presetName}",
       "cacheVariables": {
         "CMAKE_CXX_EXTENSIONS": "OFF",
-        "CMAKE_CXX_MODULES": "ON",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wconversion -Wsign-conversion -Wunused-result",
         "CMAKE_CXX_MODULE_STD": "ON",
-        "CMAKE_CXX_STANDARD": "26",
+        "CMAKE_CXX_MODULES": "ON",
         "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+        "CMAKE_CXX_STANDARD": "26",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
         "CMAKE_POSITION_INDEPENDENT_CODE": "ON"
       },
@@ -28,7 +29,7 @@
       "hidden": false,
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Werror -Wconversion -Wsign-conversion -Werror=unused-result"
+        "CMAKE_CXX_FLAGS": "-Werror"
       }
     },
     {
@@ -37,7 +38,8 @@
       "inherits": "base",
       "hidden": false,
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Werror"
       }
     }
   ],

@@ -1,6 +1,13 @@
-#include <print>
+import std;
+
+import syslog;
 
 int main() {
-    std::println("Version {}.{}.{}", VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH);
+    syslog::fatal("Fatal");
+    syslog::error("Error");
+    syslog::warning("Warning");
+    syslog::info("Info");
+    syslog::note("Note");
+    syslog::debug("Debug");
     return 0;
 }

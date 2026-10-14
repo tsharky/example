@@ -8,21 +8,19 @@ project(ExampleProject
     VERSION 0.1.0
 )
 
-if("${CMAKE_PROJECT_NAME}" STREQUAL "${PROJECT_NAME}")    
-    set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-	list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
-
-    # Doxygen
-    find_package(Doxygen)
-    if(Doxygen_FOUND)
-        add_subdirectory(docs)
-    else()
-        message(STATUS "Doxygen not found, not building docs.")
-    endif()
-endif()
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
 # Add libraries
 add_subdirectory(libs/syslog)
 
 # Add applications
 add_subdirectory(apps/example)
+
+# Doxygen
+find_package(Doxygen)
+if(Doxygen_FOUND)
+    add_subdirectory(docs)
+else()
+    message(STATUS "Doxygen not found, not building docs.")
+endif()
